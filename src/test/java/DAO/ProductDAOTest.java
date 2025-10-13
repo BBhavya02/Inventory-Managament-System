@@ -8,11 +8,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ProductDAOTest {
 
-    private static ProductDAO DAO;
+    private static ProductDAOImpl DAO;
 
     @BeforeAll
     static void setup() {
-        DAO = new ProductDAO();
+        DAO = new ProductDAOImpl();
     }
 
     @Test

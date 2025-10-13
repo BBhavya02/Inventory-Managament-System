@@ -1,6 +1,6 @@
 package Services;
 
-import DAO.ProductDAO;
+import DAO.ProductDAOImpl;
 import Exceptions.DatabaseException;
 import Exceptions.InvalidInputException;
 import Exceptions.ProductNotFoundException;
@@ -10,7 +10,7 @@ import java.util.*;
 
 public class InventoryManagement {
 
-    public  static ProductDAO myProductDAO=new ProductDAO();
+    public  static ProductDAOImpl myProductDAO=new ProductDAOImpl();
     public static Product InputHelper(Scanner scanner) {
         int id = 0;
         String name = null;
