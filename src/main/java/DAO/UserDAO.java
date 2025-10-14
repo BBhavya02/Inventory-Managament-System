@@ -1,5 +1,6 @@
 package DAO;
 
+import Models.Product;
 import Models.User;
 
 import java.sql.Connection;
@@ -7,20 +8,24 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.*;
 
-public class UserDAO implements DAOImpl {
+public class UserDAO {
 
     private Connection connection;
 
-
-
+    public List<Product> getAllProducts() {
+        List<Product> products = new ArrayList<>();
+        // Your logic to load products from DB or CSV
+        return products;
+    }
 
     public void addUser(User user) throws SQLException {
         String sql = "INSERT INTO users (username, password, role) VALUES (?, ?, ?)";
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
-            ps.setString(1, Models.User.getUsername());
-            ps.setString(2, Models.User.getPassword());
-            ps.setString(3, Models.User.getRole());
+            ps.setString(1, user.getUsername());
+            ps.setString(2, user.getPassword());
+            ps.setString(3, user.getRole());
             ps.executeUpdate();
             System.out.println("✅ User added successfully!");
         } catch (SQLIntegrityConstraintViolationException e) {
@@ -28,7 +33,9 @@ public class UserDAO implements DAOImpl {
         }
     }
 
-    public User getUserByUsername(String username) throws SQLException {
+
+
+    public User getUsername(String username) throws SQLException {
         String sql = "SELECT * FROM users WHERE username = ?";
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setString(1, username);

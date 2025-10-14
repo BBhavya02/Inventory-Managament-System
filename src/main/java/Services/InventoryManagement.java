@@ -5,12 +5,28 @@ import Exceptions.DatabaseException;
 import Exceptions.InvalidInputException;
 import Exceptions.ProductNotFoundException;
 import Models.Product;
+import Models.User;
 
 import java.util.*;
 
 public class InventoryManagement {
 
-    public  static ProductDAOImpl myProductDAO=new ProductDAOImpl();
+    public  static ProductDAOImpl myProductDAO= new ProductDAOImpl() {
+        @Override
+        public List<Product> getProductByCategory(String Category) {
+            return List.of();
+        }
+
+        @Override
+        public List<Product> searchByPriceRange(double minPrice, double maxPrice) {
+            return List.of();
+        }
+
+        @Override
+        public User getUserByUsername(String username) {
+            return null;
+        }
+    };
     public static Product InputHelper(Scanner scanner) {
         int id = 0;
         String name = null;
