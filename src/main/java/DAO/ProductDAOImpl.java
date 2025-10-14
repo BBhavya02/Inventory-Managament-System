@@ -5,10 +5,9 @@ import Models.Product;
 import util.DBConnection;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-public class ProductDAOImpl implements DAOImpl {
+public abstract class ProductDAOImpl implements DAO {
 
     @Override
     public void AddProduct(Product product){
@@ -27,7 +26,6 @@ public class ProductDAOImpl implements DAOImpl {
         }
     }
 
-    @Override
     public List<Product> getAllProducts() {
         List<Product> productslist = new ArrayList<>();
         String sql = "SELECT * FROM products";

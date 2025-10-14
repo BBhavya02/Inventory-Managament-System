@@ -1,10 +1,11 @@
 package DAO;
 
 import Models.Product;
+import Models.User;
 
 import java.util.List;
 
-public interface DAOImpl {
+public interface DAO {
     void AddProduct(Product product);
     List<Product> getAllProducts();
     Product getProductById(int id,boolean check);
@@ -12,4 +13,7 @@ public interface DAOImpl {
     Product updateProduct(Product product);
     List<Product> getProductByCategory(String Category);
     List<Product> searchByPriceRange(double minPrice,double maxPrice);
+
+
+    User getUserByUsername(String username);
 }
